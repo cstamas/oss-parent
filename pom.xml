@@ -70,10 +70,6 @@
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
-  <prerequisites>
-    <maven>3.3.3</maven>
-  </prerequisites>
-
   <build>
     <defaultGoal>install</defaultGoal>
 
@@ -128,6 +124,16 @@
                 <requireJavaVersion>
                   <version>1.8.0</version>
                 </requireJavaVersion>
+              </rules>
+            </configuration>
+          </execution>
+          <execution>
+            <id>enforce-maven</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
                 <requireMavenVersion>
                   <version>3.3</version>
                 </requireMavenVersion>
@@ -216,7 +222,8 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.19.1</version>
           <configuration>
-            <forkMode>once</forkMode>
+            <forkCount>1</forkCount>
+            <reuseForks>true</reuseForks>
             <redirectTestOutputToFile>${maven.test.redirectTestOutputToFile}</redirectTestOutputToFile>
             <failIfNoSpecifiedTests>${surefire.failIfNoSpecifiedTests}</failIfNoSpecifiedTests>
             <systemPropertyVariables>
@@ -231,7 +238,8 @@
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>2.19.1</version>
           <configuration>
-            <forkMode>always</forkMode>
+            <forkCount>1</forkCount>
+            <reuseForks>false</reuseForks>
             <redirectTestOutputToFile>${maven.test.redirectTestOutputToFile}</redirectTestOutputToFile>
             <failIfNoSpecifiedTests>${it.failIfNoSpecifiedTests}</failIfNoSpecifiedTests>
             <forkedProcessTimeoutInSeconds>${failsafe.timeout}</forkedProcessTimeoutInSeconds>
