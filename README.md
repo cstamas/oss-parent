@@ -1,6 +1,5 @@
 # OSS Parent POM
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.cstamas/parent/badge.svg?subject=org.cstamas:parent)](https://maven-badges.herokuapp.com/maven-central/org.cstamas/parent) 
+[![Maven](https://img.shields.io/maven-central/v/org.cstamas/parent.svg)](https://repo1.maven.org/maven2/org/cstamas/parent/)
 
 Used for OSS projects.
-
